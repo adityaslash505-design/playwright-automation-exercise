@@ -4,7 +4,7 @@ export class CartPage{
     readonly cartLink: Locator;
     readonly cartRows: Locator;
     readonly productName: Locator;
-    readonly productPrice: Locator;
+    readonly productPrice: Locator;                 
     readonly productQuantity: Locator;
     readonly productTotal: Locator;
     readonly removeBtn: Locator;
@@ -24,31 +24,31 @@ export class CartPage{
         this.continueOnCart = page.locator('.btn.btn-success.close-checkout-modal.btn-block')
     }
 
-    async goToCart(){
-        await expect(this.cartLink).toBeVisible();
-        await this.cartLink.click();
+    async goToCart(){  //Go to cart
+        await expect(this.cartLink).toBeVisible();   //Checking if cart link is visible
+        await this.cartLink.click();      //Clicking on cart
     }
     
-    async verifyProductInCart(product: string){
+    async verifyProductInCart(product: string){      //Verifying if product is added
 
         await expect(this.productName).toContainText(product);
     }
-    async verifyProductToHaveQuantity(quantity: string) {
+    async verifyProductToHaveQuantity(quantity: string) {     //Verrifying exact quantity
         await expect(this.productQuantity).toHaveText(quantity);
     }
     async removeProduct() {
-        await this.removeBtn.click();
+        await this.removeBtn.click();   //Eemoving product from the cart
     }
 
-    async verifyCartIsEmpty() {
+    async verifyCartIsEmpty() {    //Verfying if cart is empty or not
     await expect(this.page.getByText('Cart is empty')).toBeVisible();
   }
-    async checkOut() {
+    async checkOut() {     //Checking out
         await expect(this.checkOutBtn).toBeVisible();
         await this.checkOutBtn.click();
 
         await expect(this.continueOnCart).toBeVisible();
-        await this.continueOnCart.click();
+        await this.continueOnCart.click();       //continue the shopping after checking out
 
     }
 }
