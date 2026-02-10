@@ -8,3 +8,4 @@ node_modules/
 /playwright/.auth/
 example.spec.ts
 example.test.ts
+uploads/ 
