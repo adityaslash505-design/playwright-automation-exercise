@@ -38,7 +38,7 @@ prodcutPage = new ProductPage(page);
 await prodcutPage.SearchBlueTop();
 });
 
-test.only('Verify Brand Name', async ({ page }) => {
+test('Verify Brand Name', async ({ page }) => {
   const productPage = new ProductPage(page);
 
   const brandNames = await productPage.getAllBrandNames();
